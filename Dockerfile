@@ -13,7 +13,7 @@ ENV COINMON_VERSION 0.0.20
 
 # Update & install packages
 RUN apt-get update && \
-    apt-get install -y git curl apt-transport-https
+    apt-get install -y gnupg2 git wget curl apt-transport-https
 
 #Add yarn repository
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
@@ -25,7 +25,10 @@ RUN apt-get update && \
     apt-get install -y yarn nodejs
 
 # Clone the repository
-RUN git clone https://github.com/bichenkk/coinmon.git
+RUN mkdir coinmon && \
+    cd coinmon && \
+    wget https://api.github.com/repos/bichenkk/coinmon/tarball/${COINMON_VERSION} -O ${COINMON_VERSION}.tar.gz && \
+    tar xf  ${COINMON_VERSION}.tar.gz --strip-components=1
 
 # Install
 RUN cd coinmon && \
