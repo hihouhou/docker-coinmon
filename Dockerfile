@@ -9,6 +9,8 @@ FROM debian:latest
 
 MAINTAINER hihouhou < hihouhou@hihouhou.com >
 
+ENV COINMON_VERSION 0.0.20
+
 # Update & install packages
 RUN apt-get update && \
     apt-get install -y git curl apt-transport-https
@@ -31,5 +33,5 @@ RUN cd coinmon && \
     npm install -g && \
     npm link 
 
-#Install krakenex and clikraken
+#Run it
 RUN coinmon
