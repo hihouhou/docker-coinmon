@@ -9,7 +9,7 @@ FROM debian:latest
 
 MAINTAINER hihouhou < hihouhou@hihouhou.com >
 
-ENV COINMON_VERSION 0.0.20
+ENV COINMON_VERSION 0.0.22
 
 # Update & install packages
 RUN apt-get update && \
