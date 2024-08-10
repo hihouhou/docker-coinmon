@@ -9,7 +9,7 @@ FROM debian:latest
 
 LABEL org.opencontainers.image.authors="hihouhou < hihouhou@hihouhou.com >"
 
-ENV COINMON_VERSION 0.0.22
+ENV COINMON_VERSION=0.0.22
 
 # Update & install packages
 RUN apt-get update && \
